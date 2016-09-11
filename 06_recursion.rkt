@@ -62,3 +62,53 @@
 (define (my-foldl f base l)
   (cond [(empty? l) base]
         [else (my-foldl f (f (first l) base) (rest l))]))
+
+; factorial
+; > (factorial 6)
+; 720
+(define (factorial n)
+  (cond [(= n 1) 1]
+        [else (* n (factorial (- n 1)))]))
+
+; countdown
+; > (countdown 10)
+; "Blastoff!"
+(define (countdown n)
+  (cond [(= n 0) "Blastoff!"]
+        [else (countdown (- n 1))]))
+
+; fibonacci
+; > (fibonacci 10)
+; 55
+(define (fibonacci n)
+  (cond [(= n 0) 0]
+        [(= n 1) 1]
+        [else (+ (fibonacci (- n 1)) (fibonacci (- n 2)))]))
+
+; my-exponent
+; > (my-exponent 3 3)
+; 27
+(define (my-exponent b e)
+  (cond [(= e 0) 1]
+        [else (* b (my-exponent b (- e 1)))]))
+
+; mult
+; > (mult 1 5)
+; 5
+(define (mult a b)
+  (cond [(= b 0) 0]
+        [else (+ a (mult a (- b 1)))]))
+
+; my-gcd
+; > (gcd 10 12)
+; 2
+(define (my-gcd a b)
+  (cond [(= b 0) a]
+        [else (my-gcd b (remainder a b))]))
+
+; empty-container
+; > (empty-container 5)
+; "Container is empty!"
+(define (empty-container n)
+  (cond [(= n 0) "Container is empty!"]
+        [else (empty-container (- n 1))]))
